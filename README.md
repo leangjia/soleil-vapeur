@@ -1,5 +1,13 @@
 # Documentation de soleil-vapeur
 
+> **中文版本 / Version chinoise** — 本文档库已有完整的简体中文翻译，位于
+> [`zh` 分支](https://github.com/leangjia/soleil-vapeur/tree/zh)。
+> 49 个 PDF 仅有法文版，中文页面按原路径链接引用。
+>
+> **Version chinoise** : une traduction chinoise complète de cette documentation
+> est disponible sur la [branche `zh`](https://github.com/leangjia/soleil-vapeur/tree/zh).
+> Les 49 PDF n'existent qu'en français ; les pages chinoises y renvoient par les mêmes liens.
+
 **Cuisson alimentaire, Stérilisation médicale**  
 **Production de glace par adsorption**  
 **avec le groupe solaire thermique à vapeur "soleil-vapeur"**  
