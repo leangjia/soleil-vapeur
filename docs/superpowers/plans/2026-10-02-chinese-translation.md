@@ -145,8 +145,11 @@ git show main:bacasable.md
 术语对照表用以下内容（已核实各词在原文出现）。**必须用无竖线的列表形式，不得用 markdown
 表格** —— 法文版表格行数为 0，若中文版新增表格行会导致门禁表格行数不相等而 FAIL：
 
+**并且小节标题必须用加粗，不能用 `###`** —— `README.md` 的标题数基线是 10，用 `###` 会变成 11
+导致门禁 FAIL。实施时用 `**术语对照表**`。
+
 ```markdown
-### 术语对照表
+**术语对照表**
 
 - capteur solaire thermique à conduite manuelle — 手动跟踪式太阳能集热器
 - concentrateur parabolique composé (CPC) — 复合抛物面聚光器 (CPC)
