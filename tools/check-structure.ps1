@@ -1,5 +1,9 @@
 param(
-    [string]$Only = ''
+    [string]$Only = '',
+    # French baseline reference. MUST be a fixed commit, never a moving branch:
+    # `main` gained the Chinese-translation pointer (README.md), which shifts the
+    # link/number baselines and makes `zh` fail spuriously.
+    [string]$Baseline = 'c5be8b4'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -7,7 +11,7 @@ $utf8 = [System.Text.Encoding]::UTF8
 
 $exclude = @('doc-asso.htm', 'test-markdown-github-codimd.md')
 
-$all = @(git ls-tree -r --name-only main | Where-Object {
+$all = @(git ls-tree -r --name-only $Baseline | Where-Object {
     ($_ -match '\.(md|html|htm)$') -and ($exclude -notcontains $_)
 })
 
@@ -17,7 +21,7 @@ function Read-MainFile {
     param([string]$RelPath)
     $tmp = [System.IO.Path]::GetTempFileName()
     try {
-        cmd /c "git show main:$RelPath > `"$tmp`"" 2>$null | Out-Null
+        cmd /c "git show ${Baseline}:$RelPath > `"$tmp`"" 2>$null | Out-Null
         if (-not (Test-Path -LiteralPath $tmp)) { return $null }
         $bytes = [System.IO.File]::ReadAllBytes($tmp)
         if ($bytes.Length -eq 0) { return $null }
